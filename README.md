@@ -1,112 +1,152 @@
-# 🥗 Ingredient Management System
+# 🍳 Ingredient Recommendation System
 
-A simple and efficient **Ingredient Management System built in C** to organize, store, and manage inventory data. This project demonstrates the use of core programming concepts such as structures, file handling, searching, sorting, and dynamic memory management.
+A **C-based ingredient recommendation system** that models food relationships using graph theory, adjacency matrices, and recursive graph traversal algorithms.
 
 ---
 
 ## 🚀 Overview
 
-This project allows users to manage ingredients within an inventory system by supporting operations such as adding, updating, deleting, and searching for ingredients. The system is designed to simulate a lightweight inventory database while reinforcing foundational computer science concepts.
+This project analyzes ingredient relationships by representing ingredients as nodes in a graph. Connections between ingredients are determined by how frequently they appear together in recipes.
+
+The system uses:
+- adjacency matrices
+- recursive graph traversal
+- ingredient similarity analysis
+- graph-based recommendation logic
+
+to explore ingredient relationships and suggest compatible substitutions.
+
+The project demonstrates practical applications of:
+- graph theory
+- recursion
+- matrix-based data structures
+- recommendation systems
 
 ---
 
 ## ✨ Features
 
-- Add new ingredients
-- Delete ingredients from inventory
-- Update ingredient information
-- Search ingredients by name or ID
-- Display all ingredients
-- Store inventory data using files
-- Organize inventory efficiently
+- Load ingredient relationship graphs from datasets
+- Analyze ingredient connectivity
+- Find related ingredients
+- Compute k-distance ingredient relationships
+- Generate ingredient substitution recommendations
+- Perform restricted graph traversal
+- Analyze ingredient co-occurrence networks
+- Support both small and large graph datasets
 
 ---
 
 ## 🧠 Key Concepts
 
-- Structures (`struct`)
-- Arrays and pointers
-- Dynamic memory allocation
-- File I/O in C
-- Searching and sorting algorithms
-- Modular programming
+- Graph theory
+- Adjacency matrices
+- Recursive traversal
+- Network analysis
+- Recommendation systems
+- Matrix data structures
+- Algorithmic problem solving
+- Data-driven relationship modeling
 
 ---
 
-## 📂 Data Representation
+## 🌐 Graph Representation
 
-Each ingredient contains:
+Each ingredient is represented as a node in a graph.
 
-- Ingredient name
-- Quantity
-- Category/type
-- Unique ID
+Connections between ingredients are weighted based on:
+- frequency of co-occurrence in recipes
 
-Example structure:
+The graph is stored using:
+- adjacency matrices
 
-```c
-typedef struct {
-    int id;
-    char name[50];
-    int quantity;
-    char category[50];
-} Ingredient;
+Example:
+
+```text
+Ingredient A ---- 15 ---- Ingredient B
 ```
 
+Meaning:
+- the two ingredients appeared together in 15 recipes.
+
 ---
 
-## ⚙️ Functionalities
+## ⚙️ Core Functionalities
 
-### ➕ Add Ingredient
-Stores a new ingredient in the inventory system.
+### 🔍 Ingredient Lookup
+Search for ingredients and retrieve graph indices.
 
-### 🔍 Search Ingredient
-Find ingredients quickly using:
-- Name
-- ID
+### 🧩 Related Ingredients
+Identify ingredients commonly paired together.
 
-### ✏️ Update Ingredient
-Modify ingredient details such as:
-- quantity
-- category
-- name
+### 🌐 K-Distance Relationships
+Explore ingredient relationships multiple connections away.
 
-### ❌ Delete Ingredient
-Remove ingredients safely from the system.
+### 🔄 Ingredient Substitution
+Suggest replacement ingredients based on graph similarity.
 
-### 📋 Display Inventory
-Display all ingredients in a clean and organized format.
+### 🚫 Restricted Traversal
+Analyze ingredient relationships while excluding selected nodes.
 
 ---
 
 ## ▶️ How to Run
 
-1. Compile the program:
+1. Clone the repository:
 
 ```bash
-gcc ingredient_system.c -o ingredient_system
+git clone https://github.com/yuvraj-kapoor/ingredient-recommendation-system.git
 ```
 
-2. Run the executable:
+2. Navigate into the project folder:
 
 ```bash
-./ingredient_system
+cd ingredient-recommendation-system
+```
+
+3. Compile the project:
+
+```bash
+gcc -Wall A3_driver.c
+```
+
+4. Run the executable:
+
+```bash
+./a.out
 ```
 
 ---
 
-## 🧪 Sample Output
+## 🧪 Sample Functionality
+
+Example queries:
+- related ingredients for garlic
+- substitute recommendations for basil
+- ingredient relationship traversal
+- recipe network exploration
+
+Example ingredient dataset includes:
+- garlic
+- basil
+- onion
+- chicken
+- oregano
+- cumin
+- rosemary
+
+---
+
+## 📂 Project Structure
 
 ```text
-==== Ingredient Inventory ====
-
-1. Tomatoes
-   Quantity: 25
-   Category: Vegetables
-
-2. Milk
-   Quantity: 10
-   Category: Dairy
+├── ingredient_graph_system.c   # Main graph analysis implementation
+├── A3_driver.c                 # Driver/testing program
+├── AdjMat_small.dat            # Small adjacency matrix dataset
+├── AdjMat_full.dat             # Full adjacency matrix dataset
+├── Ingredient_names_small.txt  # Small ingredient list
+├── Ingredient_names_full.txt   # Full ingredient list
+├── README.md
 ```
 
 ---
@@ -114,43 +154,32 @@ gcc ingredient_system.c -o ingredient_system
 ## ⏱ Time Complexity
 
 | Operation | Complexity |
-|----------|------------|
-| Add Ingredient | O(1) |
-| Search Ingredient | O(n) |
-| Delete Ingredient | O(n) |
-| Display Inventory | O(n) |
-
----
-
-## 📂 Project Structure
-
-```text
-├── ingredient_system.c    # Main implementation
-├── data.txt               # Stored inventory data
-├── README.md
-```
+|---|---|
+| Ingredient Lookup | O(n) |
+| Graph Traversal | O(n²) |
+| K-Distance Search | O(n²) |
+| Ingredient Recommendation | O(n²) |
+| Matrix Processing | O(n²) |
 
 ---
 
 ## 📌 Notes
 
-- This project focuses on applying foundational programming concepts in C.
-- Designed as a lightweight inventory management system.
-- Can be extended with:
-  - database integration
-  - GUI support
-  - barcode scanning
-  - expiry notifications
+- Developed as part of a university computer science assignment.
+- Focused on graph theory and recursive algorithms.
+- Demonstrates practical applications of recommendation systems and network analysis.
+- Emphasizes matrix-based graph representations and recursive traversal logic.
 
 ---
 
 ## 🔮 Future Improvements
 
-- Add login/authentication system
-- Implement linked lists or hash maps for optimization
-- Export inventory reports
-- Add expiry-date tracking
-- Build a graphical interface
+- Recipe recommendation engine
+- Graph visualization tools
+- Weighted recommendation scoring
+- GUI implementation
+- Machine learning integration
+- Real-time recipe analysis
 
 ---
 
